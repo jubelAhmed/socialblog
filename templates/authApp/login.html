@@ -1,0 +1,34 @@
+{% extends "authApp/base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block body_block %}
+
+    <div class="container">
+        <div class="jumbotronn">
+            <h3 class="text-primary">Login</h3>
+
+            <form action="{% url 'authApp:user_login' %}" method="POST">
+
+                {% csrf_token %}
+            
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" id="InputUsername" aria-describedby="emailHelp" name="username" placeholder="Enter Username">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Password">
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+                 
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

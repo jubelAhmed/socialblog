@@ -1,0 +1,29 @@
+{% extends "authApp/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block body_block %}
+
+    <div class="container">
+        <div class="jumbotronn">
+            {% if registered %}
+                <p>Thank you for registering </p>
+            {% else %}
+                <h3>Registration Here </h3>
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ user_form.as_p  }}
+                    {{ profile_form.as_p }} 
+
+                    <input type="submit" value="Submit" class="button button-primary">
+
+                </form>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
